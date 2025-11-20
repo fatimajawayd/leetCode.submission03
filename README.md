@@ -35,3 +35,38 @@ int main(void){
     return 0;
 }
 ```
+
+## PROBELM:02
+### RETURN THE FIRST PALINDROMIC WORD IN THE STRING
+
+```c
+#include <stdio.h>
+#include <string.h>
+
+char* firstPalindrome(char* words[], int wordsSize){
+    for(int z=0; z<wordsSize; z++){
+        int i=0;
+        int j= strlen(words[z])-1;
+        int p =1;
+
+        while(i<j){
+            if(words[z][i]!=words[z][j]){
+                p = 0;
+                break;
+            }
+            i++; j--;
+        }
+        if(p==1){
+            return words[z];
+        }
+    }
+    return "";
+}
+
+int main(){
+    char* words[] = {"abc","car","racecar","cool"};
+    int wordsSize = 5;
+    char* result = firstPalindrome(words, wordsSize);
+    printf("%s\n", result);
+}
+```
